@@ -1,64 +1,84 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View,
+    Button
 } from 'react-native';
 
 export default class STCKY extends Component {
-  render() {
-    return (
-      <View style={[styles.topContainer,  testBorder('red')]}>
-        <View style={[styles.middleContainer,  testBorder('blue')]}>
-          <Text style={styles.textDINCondensed}>STCKY</Text>
-        </View>
-        <View style={[styles.topContainer,  testBorder('green')]}>
-          <Text style={styles.textHelvetica}>Helvetica</Text>
-        </View>
-        <View style={[styles.bottomContainer,  testBorder('blue')]}>
-          <Text>STCKY</Text>
-        </View>
-      </View>
-    );
-  }
+    render() {
+        return (
+            <View style={[styles.mainContainer,  testBorder('red')]}>
+                <View style={[styles.topContainer,  testBorder('green')]}>
+                    <View style={[styles.logoContainer,  testBorder('white')]}>
+                        <Text style={[styles.logoText,  testBorder('blue')]}>STCKY</Text>
+                    </View>
+                    <Text style={[styles.textHelvetica,  testBorder('green')]}>see what sticks</Text>
+                </View>
+                <View style={[styles.middleContainer,  testBorder('blue')]}>
+                    <Text>middleContainer</Text>
+                    <Button
+                      onPress={testButton}
+                      title="Learn More"
+                      color="#333F48"
+                      backgroundColor="white"
+                      accessibilityLabel="Learn more about this purple button"
+                    />
+                </View>
+                <View style={[styles.bottomContainer,  testBorder('brown')]}>
+                    <Text>bottomContainer</Text>
+                </View>
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
+    mainContainer: {
+        flex: 1, 
+        backgroundColor: '#DF7357'
+    },
     topContainer: {
-      flex: 1, 
-      // justifyContent: "stretch", // vertical: flex-start(top),  flex-end(bottom)
-      // alignItems: "stretch",  //  horizontal: flex-start(left), flex-end(right)
+        flex: 1, 
+        // justifyContent: "center", // vertical: flex-start(top),  flex-end(bottom)
+        // alignItems: "center",  //  horizontal: flex-start(left), flex-end(right)
     },
     middleContainer: {
-      flex: 1,
+        flex: 1,
     },
     bottomContainer: {
-      flex: 1,
+        flex: 1,
+    },
+    logoContainer: {
+        flex: 1,
+        // justifyContent: "flex-end",
+    },
+    logoText: {
+        // flex: 1,
+        // justifyContent: "flex-end",
+        fontFamily: 'DINCondensed-Bold',
+        fontSize: 100,
+        color: 'white'
     },
     textHelvetica: {
-      fontSize: 60,
-      fontFamily: 'Helvetica',
-    },
-    textDINCondensed: {
-      fontSize: 90,
-      fontFamily: 'DINCondensed-Bold',
-      // fontStyle: 'italic',
-      // fontWeight: 'bold',
+        // flex: 1,
+        // justifyContent: "flex-end",
+        fontFamily: 'Helvetica',
+        fontSize: 30,
+        color: '#FF9351'
     },
 });
 
 AppRegistry.registerComponent('STCKY', () => STCKY);
 
 var testBorder = function(color){
-  return {
-    borderColor: color,
-    borderWidth: 4
-  }
+    return {
+        borderColor: color,
+        borderWidth: 1
+    }
+}
+var testButton = function(color){
+    console.log('in button')
 }
