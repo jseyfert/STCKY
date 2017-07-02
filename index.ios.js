@@ -4,6 +4,9 @@ import {AppRegistry, } from 'react-native';
 var Landing = require('./components/landing.js');
 var SizeSelection = require('./components/sizeSelection.js');
 var Recommendation = require('./components/recommendation.js');
+var GlueData = require('./data/glueData');
+
+// console.log(GlueData)
 
 export default class STCKY extends Component {
     constructor(props) {
