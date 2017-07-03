@@ -10,35 +10,9 @@ import {
     View,
 } from 'react-native';
 
-let data = [1,2,3,4]
 
-Picker.init({
-    pickerTitleText: 'Select Material',
-    pickerData: data,
-    selectedValue: [1],
-    onPickerConfirm: data => {
-      console.log('onPickerConfirm',data);
-    },
-    onPickerCancel: data => {
-      console.log('onPickerCancel',data);
-    },
-    // onPickerSelect: data => {
-    //     console.log('onPickerSelect',data);
-    // }
-});
-
-
-Picker.hide();
 
 export default class SizeSelection extends Component {
-
-    constructor(props) {
-      super(props);
-      this.state = {
-        material1: null,
-        material2: null,
-        };
-    }
 
     render() {
         return (

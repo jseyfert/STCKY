@@ -10,7 +10,7 @@ import {
     View,
 } from 'react-native';
 
-let data = [1,2,3,4]
+let data = ["paper", "plastic", "glass", "wood", "styrofoam", "ceramic", "rubber", "fabric", "stone", "metal", "vinyl"]
 
 Picker.init({
     pickerTitleText: 'Select Material',
@@ -22,25 +22,18 @@ Picker.init({
     onPickerCancel: data => {
       console.log('onPickerCancel',data);
     },
-    // onPickerSelect: data => {
-    //     console.log('onPickerSelect',data);
-    // }
-});
 
+});
 
 Picker.hide();
 
+// console.log(this.props.material1 )
+// console.log('this.props.material1', 'this.props.material1')
+
 export default class Landing extends Component {
 
-    constructor(props) {
-      super(props);
-      this.state = {
-        material1: null,
-        material2: null,
-        };
-    }
-
     render() {
+         console.log("in landing", this.props.glueData )
         return (
             <View style={[styles.mainContainer,  testBorder('red')]}>
                 <View style={[styles.topContainer,  testBorder('green')]}>
@@ -71,7 +64,8 @@ export default class Landing extends Component {
                     <Button
                       containerStyle={{padding:10, height:60, overflow:'hidden', borderRadius:4, backgroundColor: '#FF9351'}}
                       style={{fontFamily: 'DINCondensed-Bold', fontSize: 50, color: 'white'}}
-                      // onPress={() => Picker.show()}
+                      onPress={() => this.props.handleGlueItButton()}
+                      // onPress={() => this.props.glueSelector()}
                       >
                       GLUE IT!
                     </Button>
