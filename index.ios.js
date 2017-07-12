@@ -13,8 +13,8 @@ export default class STCKY extends Component {
         super(props);
         this.state = { 
             showWhichComp: 'landing',
-            material1: 'paper', 
-            material2: 'plastic',
+            material1: 'material 1', 
+            material2: 'material 2',
             reccomendedGlueRegular: null,
             reccomendedGlueSmall: null,
             reccomendedGlueLarge: null,
@@ -34,7 +34,21 @@ export default class STCKY extends Component {
         }
     }
 
-    !!!! figure out how to write glueSelector in es6 and get it to setState !!!
+    handlePicker1 = (data) => {
+        console.log("handlePicker1", data)
+        this.setState({
+            material1: data[0]
+        });
+    }
+
+    handlePicker2 = (data) => {
+        console.log("handlePicker2", data)
+        this.setState({
+            material2: data[0]
+        });
+    }
+
+    // !!!! figure out how to write glueSelector in es6 and get it to setState !!!
 
     glueSelector = () => {
         // console.log("glueSelector", GlueData)
@@ -71,6 +85,8 @@ export default class STCKY extends Component {
                 material2 = { this.state.material2 }
                 glueData = {GlueData}
                 handleGlueItButton = { this.handleGlueItButton }
+                handlePicker1 = { this.handlePicker1 }
+                handlePicker2 = { this.handlePicker2 }
                 glueSelector = { this.glueSelector }
                 />
             );

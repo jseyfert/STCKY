@@ -10,30 +10,53 @@ import {
     View,
 } from 'react-native';
 
-let data = ["paper", "plastic", "glass", "wood", "styrofoam", "ceramic", "rubber", "fabric", "stone", "metal", "vinyl"]
-
-Picker.init({
-    pickerTitleText: 'Select Material',
-    pickerData: data,
-    selectedValue: [1],
-    onPickerConfirm: data => {
-      console.log('onPickerConfirm',data);
-    },
-    onPickerCancel: data => {
-      console.log('onPickerCancel',data);
-    },
-
-});
-
-Picker.hide();
-
-// console.log(this.props.material1 )
-// console.log('this.props.material1', 'this.props.material1')
-
 export default class Landing extends Component {
 
+    picker1 = () => {
+
+        let data = ["paper", "plastic", "glass", "wood", "styrofoam", "ceramic", "rubber", "fabric", "stone", "metal", "vinyl"]
+
+        Picker.init({
+            pickerTitleText: 'Select Material 1',
+            pickerData: data,
+            selectedValue: ["paper"],
+            onPickerConfirm: data => {
+                this.props.handlePicker1(data)
+                // this.props.handlePicker1();
+                // console.log('onPickerConfirm',data);
+            },
+            onPickerCancel: data => {
+              console.log('onPickerCancel',data);
+            },
+
+        });
+
+    }
+
+    picker2 = () => {
+
+        let data = ["paper", "plastic", "glass", "wood", "styrofoam", "ceramic", "rubber", "fabric", "stone", "metal", "vinyl"]
+
+        Picker.init({
+            pickerTitleText: 'Select Material 2',
+            pickerData: data,
+            selectedValue: ["paper"],
+            onPickerConfirm: data => {
+                this.props.handlePicker2(data)
+                // this.props.handlePicker1();
+                // console.log('onPickerConfirm',data);
+            },
+            onPickerCancel: data => {
+              console.log('onPickerCancel',data);
+            },
+
+        });
+
+    }
+
     render() {
-         console.log("in landing", this.props.glueData )
+        // var handlePicker1 = this.props.handlePicker1
+        console.log("in landing", this.props.glueData )
         return (
             <View style={[styles.mainContainer,  testBorder('red')]}>
                 <View style={[styles.topContainer,  testBorder('green')]}>
@@ -48,15 +71,15 @@ export default class Landing extends Component {
                     <Button
                       containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
                       style={{fontFamily: 'Helvetica', color: '#333F48'}}
-                      onPress={() => Picker.toggle()}>
-                      material 1
+                      onPress={() => this.picker1()}>
+                      {this.props.material1}
                     </Button>
 
                     <Button
                       containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
                       style={{fontFamily: 'Helvetica', color: '#333F48'}}
-                      onPress={() => Picker.toggle()}>
-                      material 2
+                      onPress={() => this.picker2()}>
+                      {this.props.material2}
                     </Button>
 
                 </View>
@@ -64,7 +87,7 @@ export default class Landing extends Component {
                     <Button
                       containerStyle={{padding:10, height:60, overflow:'hidden', borderRadius:4, backgroundColor: '#FF9351'}}
                       style={{fontFamily: 'DINCondensed-Bold', fontSize: 50, color: 'white'}}
-                      onPress={() => this.props.handleGlueItButton()}
+                      onPress={() => this.props.handlePicker1()}
                       // onPress={() => this.props.glueSelector()}
                       >
                       GLUE IT!
