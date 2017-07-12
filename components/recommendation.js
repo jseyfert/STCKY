@@ -13,12 +13,24 @@ import {
 export default class Recommendation extends Component {
 
     render() {
+            if (this.props.reccomendedGlueRegular){
         return (
-            <View style={[styles.mainContainer,  testBorder('red')]}>
-                <Text style={[styles.logoText,  testBorder('blue')]}>Recommendation</Text>
-            </View>
-   
-        );
+                <View style={[styles.mainContainer,  testBorder('red')]}>
+                    <Text style={[styles.logoText,  testBorder('blue')]}>REG glue id:{this.props.reccomendedGlueRegular}</Text>
+                </View> )
+            } else if (this.props.surfaceSize === "large"){
+        return (
+                <View style={[styles.mainContainer,  testBorder('red')]}>
+                    <Text style={[styles.logoText,  testBorder('blue')]}>LARGE glue id:{this.props.reccomendedGlueLarge}</Text>
+                </View>
+                )
+            } else {
+        return (
+                <View style={[styles.mainContainer,  testBorder('red')]}>
+                    <Text style={[styles.logoText,  testBorder('blue')]}>SMALL glue id:{this.props.reccomendedGlueSmall}</Text>
+                </View>
+                )
+            }
     }
 }
 

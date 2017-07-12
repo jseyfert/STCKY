@@ -23,15 +23,53 @@ export default class STCKY extends Component {
     }
 
     handleGlueItButton = () => {
-        if (this.state.reccomendedGlueRegular !== null){
-            this.setState({
-                showWhichComp: "recommendation"
-            });
+        var material1 = this.state.material1
+        var material2 = this.state.material2
+        var surfaceSize = this.state.surfaceSize
+        if (material1 === "material 1" || material2 === "material 2") {
+            console.log("send error 'please sleect mat 1 & 2'")
+
         } else {
-            this.setState({
-                showWhichComp: "sizeSelection"
-            });
+            // console.log("glueSelector", GlueData)
+            // console.log("material1", material1)
+            // console.log("material2", material2)
+            // console.log("surfaceSize", surfaceSize)
+            var self = this;
+            GlueData.map(function(obj){
+                if (obj.material1 === material1){
+                    // console.log(obj.material1)
+                    if (obj.material2 === material2){
+                        // console.log(obj.material2)
+                        if (obj.surfaceSize.regular){
+                            self.setState({
+                              showWhichComp: "recommendation",  
+                              reccomendedGlueRegular: obj.surfaceSize.regular
+                            });
+                        } else {
+                            self.setState({
+                              showWhichComp: "sizeSelection",  
+                              reccomendedGlueSmall: obj.surfaceSize.small,
+                              reccomendedGlueLarge: obj.surfaceSize.large
+                            });
+                        }
+                    }
+                }
+            })
         }
+    }
+
+    handleBiggerButton = (data) => {
+        this.setState({
+            showWhichComp: "recommendation",
+            surfaceSize: "large",
+        });
+    }
+
+    handleSmallerButton = (data) => {
+        this.setState({
+            showWhichComp: "recommendation",
+            surfaceSize: "small",
+        });
     }
 
     handlePicker1 = (data) => {
@@ -46,34 +84,6 @@ export default class STCKY extends Component {
         this.setState({
             material2: data[0]
         });
-    }
-
-    // !!!! figure out how to write glueSelector in es6 and get it to setState !!!
-
-    glueSelector = () => {
-        // console.log("glueSelector", GlueData)
-        // console.log("material1", material1)
-        // console.log("material2", material2)
-        // console.log("surfaceSize", surfaceSize)
-
-        // GlueData.map(function(obj){
-        //     if (obj.material1 === material1){
-        //         // console.log(obj.material1)
-        //         if (obj.material2 === material2){
-        //             // console.log(obj.material2)
-        //             if (obj.surfaceSize.regular){
-        //                 console.log('regular', obj.surfaceSize.regular)
-        //             }
-        //             if (obj.surfaceSize.small){
-        //                 console.log('small', obj.surfaceSize.small)
-        //             }
-        //             if (obj.surfaceSize.large){
-        //                 console.log('large', obj.surfaceSize.large)
-        //             }
-        //         }
-        //     }
-        // })
-        // console.log("reccomendedGlueRegular", this.state.reccomendedGlueRegular)
     }
 
     render() {
@@ -92,11 +102,19 @@ export default class STCKY extends Component {
             );
         } else if (this.state.showWhichComp === 'sizeSelection'){
             return (
-                <SizeSelection />
+                <SizeSelection 
+                    handleBiggerButton = { this.handleBiggerButton }
+                    handleSmallerButton = { this.handleSmallerButton }
+                />
             );
         } else if (this.state.showWhichComp === 'recommendation'){
             return (
-                <Recommendation />
+                <Recommendation 
+                reccomendedGlueRegular = { this.state.reccomendedGlueRegular }
+                reccomendedGlueSmall = { this.state.reccomendedGlueSmall }
+                reccomendedGlueLarge = { this.state.reccomendedGlueLarge }
+                surfaceSize = { this.state.surfaceSize }
+                />
             );
         }
     }

@@ -16,9 +16,35 @@ export default class SizeSelection extends Component {
 
     render() {
         return (
-            <View style={[styles.mainContainer,  testBorder('red')]}>
-                <Text style={[styles.logoText,  testBorder('blue')]}>sizeSelection</Text>
-            </View>
+           <View style={[styles.mainContainer,  testBorder('red')]}>
+               <View style={[styles.topContainer,  testBorder('green')]}>
+                   <View style={[styles.logoContainer,  testBorder('white')]}>
+                       <Text style={[styles.logoText,  testBorder('blue')]}>STCKY</Text>
+                   </View>
+                   <Text style={[styles.textHelvetica,  testBorder('green')]}>see what sticks</Text>
+               </View>
+
+               <View style={[styles.middleContainer,  testBorder('blue')]}>
+
+                   <Button
+                     containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
+                     style={{fontFamily: 'Helvetica', color: '#333F48'}}
+                     onPress={() => this.props.handleBiggerButton()}>
+                     BIGGER
+                   </Button>
+
+                   <Button
+                     containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
+                     style={{fontFamily: 'Helvetica', color: '#333F48'}}
+                     onPress={() => this.props.handleSmallerButton()}>
+                     SMALLER
+                   </Button>
+
+               </View>
+               <View style={[styles.bottomContainer,  testBorder('brown')]}>
+                    <Text style={[styles.textHelvetica,  testBorder('green')]}>than a $1 bill</Text>
+               </View>
+           </View>
    
         );
     }

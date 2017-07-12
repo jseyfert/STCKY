@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Picker from 'react-native-picker';
 import Button from 'react-native-button';
 
-
 import {
     AppRegistry,
     StyleSheet,
@@ -22,8 +21,6 @@ export default class Landing extends Component {
             selectedValue: ["paper"],
             onPickerConfirm: data => {
                 this.props.handlePicker1(data)
-                // this.props.handlePicker1();
-                // console.log('onPickerConfirm',data);
             },
             onPickerCancel: data => {
               console.log('onPickerCancel',data);
@@ -43,8 +40,6 @@ export default class Landing extends Component {
             selectedValue: ["paper"],
             onPickerConfirm: data => {
                 this.props.handlePicker2(data)
-                // this.props.handlePicker1();
-                // console.log('onPickerConfirm',data);
             },
             onPickerCancel: data => {
               console.log('onPickerCancel',data);
@@ -55,8 +50,6 @@ export default class Landing extends Component {
     }
 
     render() {
-        // var handlePicker1 = this.props.handlePicker1
-        console.log("in landing", this.props.glueData )
         return (
             <View style={[styles.mainContainer,  testBorder('red')]}>
                 <View style={[styles.topContainer,  testBorder('green')]}>
@@ -87,8 +80,7 @@ export default class Landing extends Component {
                     <Button
                       containerStyle={{padding:10, height:60, overflow:'hidden', borderRadius:4, backgroundColor: '#FF9351'}}
                       style={{fontFamily: 'DINCondensed-Bold', fontSize: 50, color: 'white'}}
-                      onPress={() => this.props.handlePicker1()}
-                      // onPress={() => this.props.glueSelector()}
+                      onPress={() => this.props.handleGlueItButton()}
                       >
                       GLUE IT!
                     </Button>
