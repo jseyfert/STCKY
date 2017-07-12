@@ -9,8 +9,6 @@ var GlueData = require('./data/glueData');
 
 export default class STCKY extends Component {
 
-    // !!!require and mapp the rest of the data!!!
-
     constructor(props) {
         super(props);
         this.state = { 
@@ -18,7 +16,7 @@ export default class STCKY extends Component {
             material1: 'material 1', 
             material2: 'material 2',
             reccomendedGlueRegular: null,
-            reccomendedGlueSmall: null,
+            reccomendedGlueSmall: 1,
             reccomendedGlueLarge: null,
             surfaceSize: null,
         };

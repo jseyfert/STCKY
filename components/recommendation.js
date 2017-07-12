@@ -13,6 +13,7 @@ import {
 
 export default class Recommendation extends Component {
 
+    !!!up next, mapp glue details!!!
 
     render() {
     console.log("glueDetails", GlueDetails)
