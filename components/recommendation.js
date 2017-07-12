@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Picker from 'react-native-picker';
 import Button from 'react-native-button';
-
+var GlueDetails = require('../data/glueDetails');
 
 import {
     AppRegistry,
@@ -10,9 +10,12 @@ import {
     View,
 } from 'react-native';
 
+
 export default class Recommendation extends Component {
 
+
     render() {
+    console.log("glueDetails", GlueDetails)
             if (this.props.reccomendedGlueRegular){
         return (
                 <View style={[styles.mainContainer,  testBorder('red')]}>

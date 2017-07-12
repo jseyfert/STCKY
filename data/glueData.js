@@ -1,21 +1,6 @@
 var GlueData = 
 
 [
-
-// {"drinkName": "Whiskey Sour", 
-//   "recipe": "Shake with ice. Strain into chilled glass, garnish and serve.", 
-//   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Whiskey_Sour.jpg/220px-Whiskey_Sour.jpg", 
-//   "alcohol": ["Whiskey",], 
-//   "ingredients": ["1½ oz (3 parts) Bourbon whiskey","1 oz (2 parts) fresh lemon juice","½ oz (1 part) Gomme syrup","dash egg white (optional)",], 
-//   "drinkRating": {
-//     "weatherValue": {"wCold": 2, "wMod": 6, "wWarm": 6, "wHot": 5}, 
-//     "precipValue": {"pNone": 6, "pSome": 4}, 
-//     "seasonValue": {"sSpr": 6, "sSum": 9, "sFal": 5, "sWin": 3}, 
-//     "dayValue": {"dMTRS": 2, "dW": 4, "dFS": 6}, 
-//     "timeValue": {"tMrn": 1, "tAft": 6, "tNt": 7, "wSleep": 2}
-//   }
-// },
-
   { material1: "paper", material2: "paper", surfaceSize: { regular: 1, small: null, large: null } },
   { material1: "paper", material2: "plastic", surfaceSize: { regular: 1, small: null, large: null } },
   { material1: "paper", material2: "glass", surfaceSize: { regular: null, small: 2, large: 1 } },
@@ -137,7 +122,6 @@ var GlueData =
   { material1: "vinyl", material2: "stone", surfaceSize: { regular: 7, small: null, large: null } },
   { material1: "vinyl", material2: "metal", surfaceSize: { regular: 17, small: null, large: null } },
   { material1: "vinyl", material2: "vinyl", surfaceSize: { regular: 4, small: null, large: null } },
-
 ]
 
 module.exports = GlueData;
