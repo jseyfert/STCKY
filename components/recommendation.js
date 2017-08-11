@@ -13,25 +13,94 @@ import {
 
 export default class Recommendation extends Component {
 
-    !!!up next, mapp glue details!!!
+    mapGlueDetails = (glueId) => {
+
+        var tips = []
+        var tipsRows = []
+        var priceRating = null
+        var glueName = null
+        var url = null
+
+
+        GlueDetails.map(function(obj){
+            if (obj.glueId === glueId){
+                tips = obj.tips
+                priceRating = obj.priceRating
+                glueName = obj.glueName
+                url = obj.url
+            }
+        })
+
+        tips.map(function(arr){
+            tipsRows.push(<Text style={testBorder('red')} key={arr}>• {arr}</Text>)
+        })
+
+        return (
+            <View> 
+                <Text style={testBorder('green')}>{glueName}</Text>
+                <View> 
+                    {tipsRows}
+                </View>
+                <Text style={testBorder('green')}>{priceRating}</Text>
+                <Text style={testBorder('green')}>{url}</Text>
+
+                <Button
+                  containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
+                  style={{fontFamily: 'Helvetica', color: '#333F48'}}
+                  onPress={() => this.props.handleGlueAgainButton()}>
+                  BUY ONLINE
+                </Button>
+
+            </View>
+        )
+    }
 
     render() {
-    console.log("glueDetails", GlueDetails)
+    // console.log("glueDetails", GlueDetails)
             if (this.props.reccomendedGlueRegular){
         return (
                 <View style={[styles.mainContainer,  testBorder('red')]}>
-                    <Text style={[styles.logoText,  testBorder('blue')]}>REG glue id:{this.props.reccomendedGlueRegular}</Text>
+                    <Text style={[styles.logoText,  testBorder('blue')]}>recommended glue</Text>
+                    
+                    {this.mapGlueDetails(this.props.reccomendedGlueRegular)}
+
+                    <Button
+                      containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
+                      style={{fontFamily: 'Helvetica', color: '#333F48'}}
+                      onPress={() => this.props.handleGlueAgainButton()}>
+                      GLUE AGAIN
+                    </Button>
+
+
                 </View> )
             } else if (this.props.surfaceSize === "large"){
         return (
                 <View style={[styles.mainContainer,  testBorder('red')]}>
-                    <Text style={[styles.logoText,  testBorder('blue')]}>LARGE glue id:{this.props.reccomendedGlueLarge}</Text>
+                    <Text style={[styles.logoText,  testBorder('blue')]}>recommended glue</Text>
+                    {this.mapGlueDetails(this.props.reccomendedGlueLarge)}
+
+                    <Button
+                      containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
+                      style={{fontFamily: 'Helvetica', color: '#333F48'}}
+                      onPress={() => this.props.handleGlueAgainButton()}>
+                      GLUE AGAIN
+                    </Button>
+
                 </View>
                 )
             } else {
         return (
                 <View style={[styles.mainContainer,  testBorder('red')]}>
-                    <Text style={[styles.logoText,  testBorder('blue')]}>SMALL glue id:{this.props.reccomendedGlueSmall}</Text>
+                    <Text style={[styles.logoText,  testBorder('blue')]}>recommended glue</Text>
+                    {this.mapGlueDetails(this.props.reccomendedGlueSmall)}
+
+                    <Button
+                      containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
+                      style={{fontFamily: 'Helvetica', color: '#333F48'}}
+                      onPress={() => this.props.handleGlueAgainButton()}>
+                      GLUE AGAIN
+                    </Button>
+                    
                 </View>
                 )
             }
@@ -64,7 +133,7 @@ const styles = StyleSheet.create({
         // flex: 1,
         // justifyContent: "flex-end",
         fontFamily: 'DINCondensed-Bold',
-        fontSize: 67,
+        fontSize: 50,
         color: 'white'
     },
     textHelvetica: {

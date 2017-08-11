@@ -12,7 +12,7 @@ export default class STCKY extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            showWhichComp: 'recommendation',
+            showWhichComp: 'landing',
             material1: 'material 1', 
             material2: 'material 2',
             reccomendedGlueRegular: null,
@@ -58,6 +58,18 @@ export default class STCKY extends Component {
         }
     }
 
+    handleGlueAgainButton = (data) => {
+        this.setState({
+            showWhichComp: 'landing',
+            material1: 'material 1', 
+            material2: 'material 2',
+            reccomendedGlueRegular: null,
+            reccomendedGlueSmall: 1,
+            reccomendedGlueLarge: null,
+            surfaceSize: null,
+        });
+    }
+
     handleBiggerButton = (data) => {
         this.setState({
             showWhichComp: "recommendation",
@@ -73,14 +85,14 @@ export default class STCKY extends Component {
     }
 
     handlePicker1 = (data) => {
-        console.log("handlePicker1", data)
+        // console.log("handlePicker1", data)
         this.setState({
             material1: data[0]
         });
     }
 
     handlePicker2 = (data) => {
-        console.log("handlePicker2", data)
+        // console.log("handlePicker2", data)
         this.setState({
             material2: data[0]
         });
@@ -114,6 +126,7 @@ export default class STCKY extends Component {
                 reccomendedGlueSmall = { this.state.reccomendedGlueSmall }
                 reccomendedGlueLarge = { this.state.reccomendedGlueLarge }
                 surfaceSize = { this.state.surfaceSize }
+                handleGlueAgainButton = { this.handleGlueAgainButton }
                 />
             );
         }

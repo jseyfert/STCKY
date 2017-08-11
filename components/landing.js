@@ -1,3 +1,9 @@
+// -HEADER
+// -CARD
+//   -CARD SECTION
+//   -CARD SECTION
+//   -CARD SECTION
+
 import React, { Component } from 'react';
 import Picker from 'react-native-picker';
 import Button from 'react-native-button';
