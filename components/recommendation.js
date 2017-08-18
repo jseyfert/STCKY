@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
 import Picker from 'react-native-picker';
 import Button from 'react-native-button';
+import {AppRegistry, StyleSheet, Text, View, } from 'react-native';
 var GlueDetails = require('../data/glueDetails');
-
-import {
-    AppRegistry,
-    StyleSheet,
-    Text,
-    View,
-} from 'react-native';
-
 
 export default class Recommendation extends Component {
 
@@ -20,7 +13,6 @@ export default class Recommendation extends Component {
         var priceRating = null
         var glueName = null
         var url = null
-
 
         GlueDetails.map(function(obj){
             if (obj.glueId === glueId){
@@ -36,116 +28,200 @@ export default class Recommendation extends Component {
         })
 
         return (
-            <View> 
-                <Text style={testBorder('green')}>{glueName}</Text>
-                <View> 
-                    {tipsRows}
-                </View>
-                <Text style={testBorder('green')}>{priceRating}</Text>
-                <Text style={testBorder('green')}>{url}</Text>
+            <View style={styles.parentContainer}>
 
-                <Button
-                  containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
-                  style={{fontFamily: 'Helvetica', color: '#333F48'}}
-                  onPress={() => this.props.handleGlueAgainButton()}>
-                  BUY ONLINE
-                </Button>
+
+                <View style={[styles.topContainer,  testBorder('green')]}>
+                    <Text style={[styles.glueLogoText,  testBorder('blue')]}>{glueName}</Text>
+                    <Text style={[styles.glueLogoText,  testBorder('blue')]}>...</Text>
+                </View>
+
+
+                <View style={[styles.middleContainer,  testBorder('blue')]}>
+                    <View style={[styles.leftMiddleContainer,  testBorder('pink')]}>
+                    </View>
+
+                    <View style={[styles.middleMiddleContainer,  testBorder('blue')]}>
+                        <View style={[styles.tipsContainer,  testBorder('red')]}>
+                            {tipsRows}
+                        </View>
+                        <View style={[styles.dollarContainer,  testBorder('red')]}>
+                            <Text style={[{color: 'white'}, testBorder('green')]}>{priceRating}</Text>
+                        </View>
+                    </View>
+
+                    <View style={[styles.rightMiddleContainer,  testBorder('pink')]}>
+                    </View>
+                </View>
+
+
+                <View style={[styles.bottomContainer,  testBorder('brown')]}>
+                    <View style={[styles.leftBottomContainer,  testBorder('red')]}>
+                    </View>
+                    <View style={[styles.middleBottomContainer,  testBorder('yellow')]}>
+                        <View style={[styles.topMiddleBottomContainer,  testBorder('green')]}>
+                            <Button
+                              containerStyle={styles.buttonContainerStyle}
+                              style={styles.buttonStyle}
+                              onPress={() => this.props.handleGlueAgainButton()}>
+                              BUY ONLINE
+                            </Button>
+                            <Button
+                              containerStyle={styles.buttonContainerStyle}
+                              style={styles.buttonStyle}
+                              onPress={() => this.props.handleGlueAgainButton()}>
+                              GLUE AGAIN
+                            </Button>
+                        </View>
+                        <View style={[styles.bottomMiddleBottomContainer,  testBorder('red')]}>
+                        </View>
+                    </View>
+                    <View style={[styles.rightBottomContainer,  testBorder('green')]}>
+                    </View>
+                </View>
+
 
             </View>
         )
     }
 
     render() {
-    // console.log("glueDetails", GlueDetails)
-            if (this.props.reccomendedGlueRegular){
-        return (
-                <View style={[styles.mainContainer,  testBorder('red')]}>
-                    <Text style={[styles.logoText,  testBorder('blue')]}>recommended glue</Text>
-                    
-                    {this.mapGlueDetails(this.props.reccomendedGlueRegular)}
-
-                    <Button
-                      containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
-                      style={{fontFamily: 'Helvetica', color: '#333F48'}}
-                      onPress={() => this.props.handleGlueAgainButton()}>
-                      GLUE AGAIN
-                    </Button>
-
-
-                </View> )
-            } else if (this.props.surfaceSize === "large"){
-        return (
-                <View style={[styles.mainContainer,  testBorder('red')]}>
-                    <Text style={[styles.logoText,  testBorder('blue')]}>recommended glue</Text>
-                    {this.mapGlueDetails(this.props.reccomendedGlueLarge)}
-
-                    <Button
-                      containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
-                      style={{fontFamily: 'Helvetica', color: '#333F48'}}
-                      onPress={() => this.props.handleGlueAgainButton()}>
-                      GLUE AGAIN
-                    </Button>
-
-                </View>
-                )
-            } else {
-        return (
-                <View style={[styles.mainContainer,  testBorder('red')]}>
-                    <Text style={[styles.logoText,  testBorder('blue')]}>recommended glue</Text>
-                    {this.mapGlueDetails(this.props.reccomendedGlueSmall)}
-
-                    <Button
-                      containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
-                      style={{fontFamily: 'Helvetica', color: '#333F48'}}
-                      onPress={() => this.props.handleGlueAgainButton()}>
-                      GLUE AGAIN
-                    </Button>
-                    
-                </View>
-                )
+        if (this.props.reccomendedGlueRegular){
+            return (
+                    <View style={styles.parentContainer}>
+                        {this.mapGlueDetails(this.props.reccomendedGlueRegular)}
+                    </View> 
+                    )
+                } else if (this.props.surfaceSize === "large"){
+            return (
+                    <View style={styles.parentContainer}>
+                        {this.mapGlueDetails(this.props.reccomendedGlueLarge)}
+                    </View>
+                    )
+                } else {
+            return (
+                    <View style={styles.parentContainer}>
+                        {this.mapGlueDetails(this.props.reccomendedGlueSmall)}
+                    </View>
+                    )
             }
     }
 }
 
 const styles = StyleSheet.create({
-    mainContainer: {
+    parentContainer: {
         flex: 1, 
-        backgroundColor: '#DF7357'
+        backgroundColor: '#FF9117'
     },
+    
+    ///////////////////
+
     topContainer: {
         flex: 1, 
-        // justifyContent: "center", // vertical: flex-start(top),  flex-end(bottom), space-around, space-between
-        // alignItems: "center",  //  horizontal: flex-start(left), flex-end(right)
+        justifyContent: "center",
+        alignItems: "center", 
     },
+
+    ///////////////////
+
     middleContainer: {
-        flex: 1,
-        justifyContent: "space-around",
+        flex: 2,
+        flexDirection: 'row',
     },
-    bottomContainer: {
+
+    leftMiddleContainer: {
+        flex: 1,
+    },
+    middleMiddleContainer: {
+        flex: 8,
+        justifyContent: "space-around",
+        alignItems: "center",
+    },
+    rightMiddleContainer: {
+        flex: 1,
+    },
+
+    tipsContainer: {
+        flex: 4,
+        justifyContent: "space-around",
+        backgroundColor: 'white'
+        // justifyContent: "space-between",
+        // alignItems: "center",
+    },
+    dollarContainer: {
         flex: 1,
         justifyContent: "center",
+        // alignItems: "center",
     },
-    logoContainer: {
+
+    //////////////////////
+
+    bottomContainer: {
+        flex: 2,
+        flexDirection: 'row',
+    },
+    leftBottomContainer: {
         flex: 1,
-        // justifyContent: "flex-end",
     },
-    logoText: {
-        // flex: 1,
-        // justifyContent: "flex-end",
+
+    middleBottomContainer: {
+        flex: 4,
+        justifyContent: "center",
+    },
+
+    topMiddleBottomContainer: {
+        flex: 1,
+        justifyContent: "space-between",
+    },
+    bottomMiddleBottomContainer: {
+        flex: 1,
+    },
+
+    rightBottomContainer: {
+        flex: 1,
+    },
+
+
+
+
+
+
+
+
+
+
+    /////////////////////////////////////
+
+    glueLogoText: {
         fontFamily: 'DINCondensed-Bold',
-        fontSize: 50,
-        color: 'white'
+        color: 'white',
+        fontSize: 30,
     },
     textHelvetica: {
-        // flex: 1,
-        // justifyContent: "flex-end",
         fontFamily: 'Helvetica',
+        color: '#FF9117',
         fontSize: 30,
-        color: '#FF9351'
     },
+
+    /////////////////////////////////////
+
+    buttonContainerStyle: {
+        padding:10,
+        height:45,
+        overflow:'hidden',
+        borderRadius:4,
+        backgroundColor: '#E1592A',
+    },
+    buttonStyle: {
+        fontFamily: 'Helvetica',
+        color: 'white',
+ },
 });
 
-// AppRegistry.registerComponent('STCKY', () => STCKY);
+// flexDirection: 'row',
+// flexDirection: 'column',
+// justifyContent: "center",  vertical: flex-start(top),  flex-end(bottom), space-around, space-between
+// alignItems: "center",      horizontal: flex-start(left), flex-end(right)
 
 var testBorder = function(color){
     return {
@@ -156,18 +232,18 @@ var testBorder = function(color){
 
 module.exports = Recommendation;
 
+// NEW
 // ========================================
 // ========================================
-// pantone 7579 C = '#DF7357'
-// pantone 425 C  = '#333F48'
-// pantone 1495 C = '#FF9351'
-// pantone 429 C  = '#A2AAAD'
+// pantone 7579 C = #E1592A
+// pantone 425 C  = #54575A
+// pantone 1495 C = #FF9117
+// pantone 429 C  = #A3A9AE
 
 // fontFamily: 'DINCondensed-Bold'
 // fontFamily: 'Helvetica'
 // ========================================
 // ========================================
-
 
 
 

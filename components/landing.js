@@ -121,6 +121,9 @@ const styles = StyleSheet.create({
         flex: 1, 
         backgroundColor: '#E1592A'
     },
+    
+    ///////////////////
+
     topContainer: {
         flex: 1.5, 
         justifyContent: "center",
@@ -195,10 +198,10 @@ module.exports = Landing;
 // NEW
 // ========================================
 // ========================================
-// pantone 7579 C = '#E1592A'
-// pantone 425 C  = '#54575A'
-// pantone 1495 C = '#FF9117'
-// pantone 429 C  = '#A3A9AE'
+// pantone 7579 C = #E1592A
+// pantone 425 C  = #54575A
+// pantone 1495 C = #FF9117
+// pantone 429 C  = #A3A9AE
 
 // fontFamily: 'DINCondensed-Bold'
 // fontFamily: 'Helvetica'
