@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Picker from 'react-native-picker';
 import Button from 'react-native-button';
 import Header from './partial/header.js';
-import {AppRegistry, StyleSheet, Text, View, } from 'react-native';
+import {AppRegistry, StyleSheet, Text, View, Image } from 'react-native';
 
 
 export default class SizeSelection extends Component {
@@ -26,14 +26,14 @@ export default class SizeSelection extends Component {
                   <Text style={[{textAlign: "center", fontFamily: 'DINCondensed-Bold', color: 'white', fontSize: 23},  testBorder('blue')]}>Is the gluing area</Text>
                         
                       <Button
-                      containerStyle={{padding:10, height:70, overflow:'hidden', borderRadius:4, backgroundColor: '#FF9117'}}
-                      style={{fontFamily: 'DINCondensed-Bold', fontSize: 60, color: 'white'}}
+                      containerStyle={{padding:18, height:75, overflow:'hidden', borderRadius:2, backgroundColor: '#FF9117'}}
+                      style={{fontFamily: 'DINCondensed-Bold', fontSize: 50, color: 'white'}}
                         onPress={() => this.props.handleBiggerButton()}>
                         BIGGER
                       </Button>
                       <Button
-                      containerStyle={{padding:10, height:70, overflow:'hidden', borderRadius:4, backgroundColor: '#FF9117'}}
-                      style={{fontFamily: 'DINCondensed-Bold', fontSize: 60, color: 'white'}}
+                      containerStyle={{padding:18, height:75, overflow:'hidden', borderRadius:2, backgroundColor: '#FF9117'}}
+                      style={{fontFamily: 'DINCondensed-Bold', fontSize: 50, color: 'white'}}
                         onPress={() => this.props.handleSmallerButton()}>
                         SMALLER
                       </Button>
@@ -49,7 +49,12 @@ export default class SizeSelection extends Component {
                   </View>
                   <View style={[styles.middleBottomContainer,  testBorder('yellow')]}>
                       <View style={[styles.topMiddleBottomContainer,  testBorder('green')]}>
-                        <Text style={[{textAlign: "center", fontFamily: 'DINCondensed-Bold', color: 'white', fontSize: 23},  testBorder('blue')]}>than a $1 bill?</Text>
+                        <Text style={[{paddingTop:15, textAlign: "center", fontFamily: 'DINCondensed-Bold', color: 'white', fontSize: 23},  testBorder('blue')]}>than a $1 bill?</Text>
+                        <Image
+                          style={{flex:1, height: undefined, width: undefined}}
+                          source={require('../img/dollar.jpg')}
+                          resizeMode="contain"
+                        />
                       </View>
                       <View style={[styles.bottomMiddleBottomContainer,  testBorder('red')]}>
                       </View>
@@ -74,7 +79,7 @@ const styles = StyleSheet.create({
   ///////////////////
 
   topContainer: {
-      flex: 2, 
+      flex: 1.8, 
       justifyContent: "center",
       alignItems: "center", 
   },
@@ -82,7 +87,7 @@ const styles = StyleSheet.create({
   ///////////////////
 
   middleContainer: {
-      flex: 2,
+      flex: 1.8,
       flexDirection: 'row',
   },
 
@@ -104,65 +109,28 @@ const styles = StyleSheet.create({
   //////////////////////
 
   bottomContainer: {
-      flex: 1.5,
+      flex: 1.7,
       flexDirection: 'row',
   },
   leftBottomContainer: {
       flex: 1,
   },
-
   middleBottomContainer: {
       flex: 4,
       justifyContent: "center",
   },
-
   topMiddleBottomContainer: {
-      flex: 1,
-      justifyContent: "flex-end",
+      flex: 5,
+      // justifyContent: "center",
+      // alignItems: "center",
+      // justifyContent: "flex-start",
   },
   bottomMiddleBottomContainer: {
       flex: 1,
-      // justifyContent: "center",
   },
-
   rightBottomContainer: {
       flex: 1,
   },
-
-
-
-
-
-  // old
-    // mainContainer: {
-    //     flex: 1, 
-    //     backgroundColor: '#DF7357'
-    // },
-    // topContainer: {
-    //     flex: 1, 
-    // },
-    // middleContainer: {
-    //     flex: 1,
-    //     justifyContent: "space-around",
-    // },
-    // bottomContainer: {
-    //     flex: 1,
-    //     justifyContent: "center",
-    // },
-    // logoContainer: {
-    //     flex: 1,
-    // },
-    // logoText: {
-    //     // justifyContent: "flex-end",
-    //     fontFamily: 'DINCondensed-Bold',
-    //     fontSize: 80,
-    //     color: 'white'
-    // },
-    // textHelvetica: {
-    //     fontFamily: 'Helvetica',
-    //     fontSize: 30,
-    //     color: '#FF9351'
-    // },
 });
 
 

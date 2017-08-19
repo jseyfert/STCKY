@@ -38,8 +38,11 @@ export default class Recommendation extends Component {
 
 
                 <View style={[styles.topContainer,  testBorder('green')]}>
-                    <Text style={{textAlign: "center", fontFamily: 'DINCondensed-Bold', color: 'white', fontSize: 40}}>{glueName}</Text>
-                    <Text style={{fontFamily: 'DINCondensed-Bold', color: 'white', fontSize: 30}}>...</Text>
+                    <Text style={{textAlign: "center", fontFamily: 'DINCondensed-Bold', color: 'white', fontSize: 40,
+                    paddingBottom: -5,
+                    marginBottom: -5,
+                }}>{glueName}</Text>
+                    <Text style={[{fontFamily: 'DINCondensed-Bold', color: 'white', fontSize: 30},  testBorder('blue')]}>...</Text>
                 </View>
 
 
@@ -143,7 +146,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-around",
         alignItems: "center",
         backgroundColor: 'white',
-        borderRadius:4,
+        borderRadius:2,
     },
     rightMiddleContainer: {
         flex: 1,
@@ -189,16 +192,16 @@ const styles = StyleSheet.create({
     /////////////////////////////////////
 
     buttonContainerStyle: {
-        padding:10,
-        height:65,
+        paddingTop:18,
+        height:75,
         overflow:'hidden',
-        borderRadius:4,
+        borderRadius:2,
         backgroundColor: '#E1592A',
     },
     buttonStyle: {
         fontFamily: 'DINCondensed-Bold',
         color: 'white',
-        fontSize: 55,
+        fontSize: 50,
  },
 
 });
