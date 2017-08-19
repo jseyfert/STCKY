@@ -12,14 +12,19 @@ export default class STCKY extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            showWhichComp: 'landing',
-            material1: 'material 1', 
-            material2: 'material 2',
-            reccomendedGlueRegular: null,
-            reccomendedGlueSmall: null,
-            reccomendedGlueLarge: null,
-            surfaceSize: null,
-            
+            // PROD
+            // showWhichComp: 'landing',
+            // material1: 'material 1', 
+            // material2: 'material 2',
+            // reccomendedGlueRegular: null,
+            // reccomendedGlueSmall: null,
+            // reccomendedGlueLarge: null,
+            // surfaceSize: null,
+
+            // TESTING
+            showWhichComp: 'sizeSelection',
+
+            // TESTING 
             // showWhichComp: 'recommendation',
             // material1: 'paper', 
             // material2: 'paper',

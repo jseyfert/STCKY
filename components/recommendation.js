@@ -27,10 +27,10 @@ export default class Recommendation extends Component {
             tipsRows.push(<Text style={[{fontSize: 19, fontFamily: 'Helvetica', color: '#54575A',
                 paddingLeft: 0,
                 marginLeft: 0,
-                paddingRight: 0,
+                paddingRight: 2,
                 marginRight: 0,
                 textAlign: "center",
-        },  testBorder('green')]}  key={arr}> • {arr}</Text>)
+        },  testBorder('green')]}  key={arr}>• {arr}</Text>)
         })
 
         return (
