@@ -24,7 +24,13 @@ export default class Recommendation extends Component {
         })
 
         tips.map(function(arr){
-            tipsRows.push(<Text style={testBorder('red')} key={arr}>• {arr}</Text>)
+            tipsRows.push(<Text style={[{fontSize: 19, fontFamily: 'Helvetica', color: '#54575A',
+                paddingLeft: 0,
+                marginLeft: 0,
+                paddingRight: 0,
+                marginRight: 0,
+                textAlign: "center",
+        },  testBorder('green')]}  key={arr}> • {arr}</Text>)
         })
 
         return (
@@ -32,8 +38,8 @@ export default class Recommendation extends Component {
 
 
                 <View style={[styles.topContainer,  testBorder('green')]}>
-                    <Text style={[styles.glueLogoText,  testBorder('blue')]}>{glueName}</Text>
-                    <Text style={[styles.glueLogoText,  testBorder('blue')]}>...</Text>
+                    <Text style={{textAlign: "center", fontFamily: 'DINCondensed-Bold', color: 'white', fontSize: 40}}>{glueName}</Text>
+                    <Text style={{fontFamily: 'DINCondensed-Bold', color: 'white', fontSize: 30}}>...</Text>
                 </View>
 
 
@@ -42,12 +48,7 @@ export default class Recommendation extends Component {
                     </View>
 
                     <View style={[styles.middleMiddleContainer,  testBorder('blue')]}>
-                        <View style={[styles.tipsContainer,  testBorder('red')]}>
-                            {tipsRows}
-                        </View>
-                        <View style={[styles.dollarContainer,  testBorder('red')]}>
-                            <Text style={[{color: 'white'}, testBorder('green')]}>{priceRating}</Text>
-                        </View>
+                           {tipsRows}
                     </View>
 
                     <View style={[styles.rightMiddleContainer,  testBorder('pink')]}>
@@ -60,18 +61,23 @@ export default class Recommendation extends Component {
                     </View>
                     <View style={[styles.middleBottomContainer,  testBorder('yellow')]}>
                         <View style={[styles.topMiddleBottomContainer,  testBorder('green')]}>
-                            <Button
-                              containerStyle={styles.buttonContainerStyle}
-                              style={styles.buttonStyle}
-                              onPress={() => this.props.handleGlueAgainButton()}>
-                              BUY ONLINE
-                            </Button>
-                            <Button
-                              containerStyle={styles.buttonContainerStyle}
-                              style={styles.buttonStyle}
-                              onPress={() => this.props.handleGlueAgainButton()}>
-                              GLUE AGAIN
-                            </Button>
+                            <View style={[styles.dollarContainer,  testBorder('pink')]}>
+                                <Text style={[{color: 'white', fontSize: 30,}, testBorder('green')]}>{priceRating}</Text>
+                            </View>
+                            <View style={[styles.buttonContainer,  testBorder('purple')]}>
+                                <Button
+                                  containerStyle={styles.buttonContainerStyle}
+                                  style={styles.buttonStyle}
+                                  onPress={() => this.props.handleGlueAgainButton()}>
+                                  BUY ONLINE
+                                </Button>
+                                <Button
+                                  containerStyle={styles.buttonContainerStyle}
+                                  style={styles.buttonStyle}
+                                  onPress={() => this.props.handleGlueAgainButton()}>
+                                  GLUE AGAIN
+                                </Button>
+                            </View>
                         </View>
                         <View style={[styles.bottomMiddleBottomContainer,  testBorder('red')]}>
                         </View>
@@ -118,14 +124,14 @@ const styles = StyleSheet.create({
 
     topContainer: {
         flex: 1, 
-        justifyContent: "center",
+        justifyContent: "flex-end",
         alignItems: "center", 
     },
 
     ///////////////////
 
     middleContainer: {
-        flex: 2,
+        flex: 1,
         flexDirection: 'row',
     },
 
@@ -133,25 +139,14 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     middleMiddleContainer: {
-        flex: 8,
+        flex: 6,
         justifyContent: "space-around",
         alignItems: "center",
+        backgroundColor: 'white',
+        borderRadius:4,
     },
     rightMiddleContainer: {
         flex: 1,
-    },
-
-    tipsContainer: {
-        flex: 4,
-        justifyContent: "space-around",
-        backgroundColor: 'white'
-        // justifyContent: "space-between",
-        // alignItems: "center",
-    },
-    dollarContainer: {
-        flex: 1,
-        justifyContent: "center",
-        // alignItems: "center",
     },
 
     //////////////////////
@@ -166,12 +161,12 @@ const styles = StyleSheet.create({
 
     middleBottomContainer: {
         flex: 4,
-        justifyContent: "center",
+        // justifyContent: "center",
     },
 
     topMiddleBottomContainer: {
-        flex: 1,
-        justifyContent: "space-between",
+        flex: 3,
+        // justifyContent: "space-between",
     },
     bottomMiddleBottomContainer: {
         flex: 1,
@@ -181,41 +176,31 @@ const styles = StyleSheet.create({
         flex: 1,
     },
 
-
-
-
-
-
-
-
-
-
+    buttonContainer: {
+        flex: 2,
+        justifyContent: "space-around",
+    },
+    dollarContainer: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
     /////////////////////////////////////
-
-    glueLogoText: {
-        fontFamily: 'DINCondensed-Bold',
-        color: 'white',
-        fontSize: 30,
-    },
-    textHelvetica: {
-        fontFamily: 'Helvetica',
-        color: '#FF9117',
-        fontSize: 30,
-    },
-
     /////////////////////////////////////
 
     buttonContainerStyle: {
         padding:10,
-        height:45,
+        height:65,
         overflow:'hidden',
         borderRadius:4,
         backgroundColor: '#E1592A',
     },
     buttonStyle: {
-        fontFamily: 'Helvetica',
+        fontFamily: 'DINCondensed-Bold',
         color: 'white',
+        fontSize: 55,
  },
+
 });
 
 // flexDirection: 'row',
@@ -226,7 +211,7 @@ const styles = StyleSheet.create({
 var testBorder = function(color){
     return {
         borderColor: color,
-        borderWidth: 1
+        borderWidth: 0
     }
 }
 

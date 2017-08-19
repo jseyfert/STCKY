@@ -12,17 +12,23 @@ export default class STCKY extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            showWhichComp: 'recommendation',
-            // showWhichComp: 'landing',
-            material1: 'paper', 
-            // material1: 'material 1', 
-            material2: 'paper',
-            // material2: 'material 2',
-            reccomendedGlueRegular: 1,
-            // reccomendedGlueRegular: null,
+            showWhichComp: 'landing',
+            material1: 'material 1', 
+            material2: 'material 2',
+            reccomendedGlueRegular: null,
             reccomendedGlueSmall: null,
             reccomendedGlueLarge: null,
             surfaceSize: null,
+            
+            // showWhichComp: 'recommendation',
+            // material1: 'paper', 
+            // material2: 'paper',
+            // reccomendedGlueRegular: 4, // 1 item 
+            // reccomendedGlueRegular: 3, // 2 items & shortest
+            // reccomendedGlueRegular: 2, // longest 1 item & longest total
+            // reccomendedGlueRegular: 6, // 3 items  & longest total
+            // reccomendedGlueRegular: 12, // longest glue name
+            
         };
     }
 
