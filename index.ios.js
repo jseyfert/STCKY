@@ -8,7 +8,7 @@ var GlueData = require('./data/glueData');
 
 // TODO //
 // add notification if they dont select two materials
-// url: "get urlS again",
+// crean up code
 
 // react-native run-ios --simulator="iPhone 7 Plus"     h=736 w=414
 // iPhone 7 Plus:
