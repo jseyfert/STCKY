@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import Picker from 'react-native-picker';
 import Button from 'react-native-button';
 import {AppRegistry, StyleSheet, Text, View, } from 'react-native';
+import {fonts} from '../styles/fonts.js';
 var GlueDetails = require('../data/glueDetails');
 
 export default class Recommendation extends Component {
 
     mapGlueDetails = (glueId) => {
-
         var tips = []
         var tipsRows = []
         var priceRating = null
@@ -24,68 +24,59 @@ export default class Recommendation extends Component {
         })
 
         tips.map(function(arr){
-            tipsRows.push(<Text style={[{fontSize: 19, fontFamily: 'Helvetica', color: '#54575A',
-                paddingLeft: 0,
-                marginLeft: 0,
-                paddingRight: 2,
-                marginRight: 0,
-                textAlign: "center",
-        },  testBorder('green')]}  key={arr}>• {arr}</Text>)
+            tipsRows.push(<Text style={fonts.tipsText}  key={arr}>• {arr}</Text>)
         })
 
         return (
-            <View style={styles.parentContainer}>
+            <View style={layout.parentContainer}>
 
 
-                <View style={[styles.topContainer,  testBorder('green')]}>
-                    <Text style={{textAlign: "center", fontFamily: 'DINCondensed-Bold', color: 'white', fontSize: 40,
-                    paddingBottom: -5,
-                    marginBottom: -5,
-                }}>{glueName}</Text>
+                <View style={[layout.topContainer,  testBorder('green')]}>
+                    <Text style={fonts.glueName}>{glueName}</Text>
                     <Text style={[{fontFamily: 'DINCondensed-Bold', color: 'white', fontSize: 30},  testBorder('blue')]}>...</Text>
                 </View>
 
 
-                <View style={[styles.middleContainer,  testBorder('blue')]}>
-                    <View style={[styles.leftMiddleContainer,  testBorder('pink')]}>
+                <View style={[layout.middleContainer,  testBorder('blue')]}>
+                    <View style={[layout.leftMiddleContainer,  testBorder('pink')]}>
                     </View>
 
-                    <View style={[styles.middleMiddleContainer,  testBorder('blue')]}>
+                    <View style={[layout.middleMiddleContainer,  testBorder('blue')]}>
                            {tipsRows}
                     </View>
 
-                    <View style={[styles.rightMiddleContainer,  testBorder('pink')]}>
+                    <View style={[layout.rightMiddleContainer,  testBorder('pink')]}>
                     </View>
                 </View>
 
 
-                <View style={[styles.bottomContainer,  testBorder('brown')]}>
-                    <View style={[styles.leftBottomContainer,  testBorder('red')]}>
+                <View style={[layout.bottomContainer,  testBorder('brown')]}>
+                    <View style={[layout.leftBottomContainer,  testBorder('red')]}>
                     </View>
-                    <View style={[styles.middleBottomContainer,  testBorder('yellow')]}>
-                        <View style={[styles.topMiddleBottomContainer,  testBorder('green')]}>
-                            <View style={[styles.dollarContainer,  testBorder('pink')]}>
+                    <View style={[layout.middleBottomContainer,  testBorder('yellow')]}>
+                        <View style={[layout.topMiddleBottomContainer,  testBorder('green')]}>
+                            <View style={[layout.dollarContainer,  testBorder('pink')]}>
                                 <Text style={[{color: 'white', fontSize: 30,}, testBorder('green')]}>{priceRating}</Text>
                             </View>
-                            <View style={[styles.buttonContainer,  testBorder('purple')]}>
+                            <View style={[layout.buttonContainer,  testBorder('purple')]}>
                                 <Button
-                                  containerStyle={styles.buttonContainerStyle}
-                                  style={styles.buttonStyle}
-                                  onPress={() => this.props.handleGlueAgainButton()}>
+                                  containerStyle={fonts.recommendButtonContainerStyle}
+                                  style={fonts.recommendButtonStyle}
+                                  onPress={() => this.props.handleBuyOnlineButton(url)}>
                                   BUY ONLINE
                                 </Button>
                                 <Button
-                                  containerStyle={styles.buttonContainerStyle}
-                                  style={styles.buttonStyle}
+                                  containerStyle={fonts.recommendButtonContainerStyle}
+                                  style={fonts.recommendButtonStyle}
                                   onPress={() => this.props.handleGlueAgainButton()}>
                                   GLUE AGAIN
                                 </Button>
                             </View>
                         </View>
-                        <View style={[styles.bottomMiddleBottomContainer,  testBorder('red')]}>
+                        <View style={[layout.bottomMiddleBottomContainer,  testBorder('red')]}>
                         </View>
                     </View>
-                    <View style={[styles.rightBottomContainer,  testBorder('green')]}>
+                    <View style={[layout.rightBottomContainer,  testBorder('green')]}>
                     </View>
                 </View>
 
@@ -97,19 +88,19 @@ export default class Recommendation extends Component {
     render() {
         if (this.props.reccomendedGlueRegular){
             return (
-                    <View style={styles.parentContainer}>
+                    <View style={layout.parentContainer}>
                         {this.mapGlueDetails(this.props.reccomendedGlueRegular)}
                     </View> 
                     )
                 } else if (this.props.surfaceSize === "large"){
             return (
-                    <View style={styles.parentContainer}>
+                    <View style={layout.parentContainer}>
                         {this.mapGlueDetails(this.props.reccomendedGlueLarge)}
                     </View>
                     )
                 } else {
             return (
-                    <View style={styles.parentContainer}>
+                    <View style={layout.parentContainer}>
                         {this.mapGlueDetails(this.props.reccomendedGlueSmall)}
                     </View>
                     )
@@ -117,7 +108,7 @@ export default class Recommendation extends Component {
     }
 }
 
-const styles = StyleSheet.create({
+const layout = StyleSheet.create({
     parentContainer: {
         flex: 1, 
         backgroundColor: '#FF9117'
@@ -164,12 +155,10 @@ const styles = StyleSheet.create({
 
     middleBottomContainer: {
         flex: 4,
-        // justifyContent: "center",
     },
 
     topMiddleBottomContainer: {
         flex: 3,
-        // justifyContent: "space-between",
     },
     bottomMiddleBottomContainer: {
         flex: 1,
@@ -188,28 +177,9 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
-    /////////////////////////////////////
-    /////////////////////////////////////
 
-    buttonContainerStyle: {
-        paddingTop:18,
-        height:75,
-        overflow:'hidden',
-        borderRadius:2,
-        backgroundColor: '#E1592A',
-    },
-    buttonStyle: {
-        fontFamily: 'DINCondensed-Bold',
-        color: 'white',
-        fontSize: 50,
- },
 
 });
-
-// flexDirection: 'row',
-// flexDirection: 'column',
-// justifyContent: "center",  vertical: flex-start(top),  flex-end(bottom), space-around, space-between
-// alignItems: "center",      horizontal: flex-start(left), flex-end(right)
 
 var testBorder = function(color){
     return {
@@ -219,19 +189,4 @@ var testBorder = function(color){
 }
 
 module.exports = Recommendation;
-
-// NEW
-// ========================================
-// ========================================
-// pantone 7579 C = #E1592A
-// pantone 425 C  = #54575A
-// pantone 1495 C = #FF9117
-// pantone 429 C  = #A3A9AE
-
-// fontFamily: 'DINCondensed-Bold'
-// fontFamily: 'Helvetica'
-// ========================================
-// ========================================
-
-
 

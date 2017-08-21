@@ -1,10 +1,32 @@
 import React, { Component } from 'react';
-import {AppRegistry, } from 'react-native';
+import {AppRegistry, Linking, Dimensions} from 'react-native';
 
 var Landing = require('./components/landing.js');
 var SizeSelection = require('./components/sizeSelection.js');
 var Recommendation = require('./components/recommendation.js');
 var GlueData = require('./data/glueData');
+
+// TODO //
+// add notification if they dont select two materials
+// url: "get urlS again",
+
+// react-native run-ios --simulator="iPhone 7 Plus"     h=736 w=414
+// iPhone 7 Plus:
+// LANDING:       BOOM  
+// SIZESELECTION: BOOM
+// RECOMMENDATION:BOOM
+
+// react-native run-ios                                 h=667 w=375
+// iPhone 6:
+// LANDING:         BOOM
+// SIZESELECTION:   BOOM
+// RECOMMENDATION:  BOOM
+
+// react-native run-ios --simulator="iPhone 5"          h=568 w=320
+// iPhone 5:
+// LANDING:         BOOM   
+// SIZESELECTION:   BOOM
+// RECOMMENDATION:
 
 
 export default class STCKY extends Component {
@@ -13,16 +35,16 @@ export default class STCKY extends Component {
         super(props);
         this.state = { 
             // PROD
-            // showWhichComp: 'landing',
-            // material1: 'material 1', 
-            // material2: 'material 2',
-            // reccomendedGlueRegular: null,
-            // reccomendedGlueSmall: null,
-            // reccomendedGlueLarge: null,
-            // surfaceSize: null,
+            showWhichComp: 'landing',
+            material1: 'material 1', 
+            material2: 'material 2',
+            reccomendedGlueRegular: null,
+            reccomendedGlueSmall: null,
+            reccomendedGlueLarge: null,
+            surfaceSize: null,
 
             // TESTING
-            showWhichComp: 'sizeSelection',
+            // showWhichComp: 'sizeSelection',
 
             // TESTING 
             // showWhichComp: 'recommendation',
@@ -73,6 +95,10 @@ export default class STCKY extends Component {
         }
     }
 
+    handleBuyOnlineButton = (url) => {
+        Linking.openURL(url)
+    }
+
     handleGlueAgainButton = (data) => {
         this.setState({
             showWhichComp: 'landing',
@@ -114,6 +140,7 @@ export default class STCKY extends Component {
     }
 
     render() {
+
         // this.glueSelector(GlueData, this.state.material1, this.state.material2, this.state.surfaceSize)
         if (this.state.showWhichComp === 'landing'){
             return (
@@ -141,6 +168,7 @@ export default class STCKY extends Component {
                 reccomendedGlueSmall = { this.state.reccomendedGlueSmall }
                 reccomendedGlueLarge = { this.state.reccomendedGlueLarge }
                 surfaceSize = { this.state.surfaceSize }
+                handleBuyOnlineButton = { this.handleBuyOnlineButton }
                 handleGlueAgainButton = { this.handleGlueAgainButton }
                 />
             );
@@ -164,7 +192,6 @@ AppRegistry.registerComponent('STCKY', () => STCKY);
 // ========================================
 
 
-// add notification if they dont select two materials
-// url: "get url again",
+
 
 

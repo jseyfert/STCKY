@@ -3,63 +3,63 @@ import Picker from 'react-native-picker';
 import Button from 'react-native-button';
 import Header from './partial/header.js';
 import {AppRegistry, StyleSheet, Text, View, Image } from 'react-native';
+import {fonts} from '../styles/fonts.js';
 
 
 export default class SizeSelection extends Component {
 
     render() {
         return (
-          <View style={styles.parentContainer}>
+          <View style={layout.parentContainer}>
 
 
-              <View style={[styles.topContainer,  testBorder('green')]}>
+              <View style={[layout.topContainer,  testBorder('green')]}>
                   <Header />
               </View>
 
 
-
-              <View style={[styles.middleContainer,  testBorder('blue')]}>
-                  <View style={[styles.leftMiddleContainer,  testBorder('pink')]}>
+              <View style={[layout.middleContainer,  testBorder('blue')]}>
+                  <View style={[layout.leftMiddleContainer,  testBorder('pink')]}>
                   </View>
-                  <View style={[styles.middleMiddleContainer,  testBorder('blue')]}>
+                  <View style={[layout.middleMiddleContainer,  testBorder('blue')]}>
 
-                  <Text style={[{textAlign: "center", fontFamily: 'DINCondensed-Bold', color: 'white', fontSize: 23},  testBorder('blue')]}>Is the gluing area</Text>
+                  <Text style={[fonts.whiteTextTop,  testBorder('blue')]}>Is the gluing area</Text>
                         
                       <Button
-                      containerStyle={{padding:18, height:75, overflow:'hidden', borderRadius:2, backgroundColor: '#FF9117'}}
-                      style={{fontFamily: 'DINCondensed-Bold', fontSize: 50, color: 'white'}}
-                        onPress={() => this.props.handleBiggerButton()}>
-                        BIGGER
+                      containerStyle={fonts.sizeButtonContainerStyle}
+                      style={fonts.sizeButtonStyle}
+                      onPress={() => this.props.handleBiggerButton()}>
+                      BIGGER
                       </Button>
                       <Button
-                      containerStyle={{padding:18, height:75, overflow:'hidden', borderRadius:2, backgroundColor: '#FF9117'}}
-                      style={{fontFamily: 'DINCondensed-Bold', fontSize: 50, color: 'white'}}
-                        onPress={() => this.props.handleSmallerButton()}>
-                        SMALLER
+                      containerStyle={fonts.sizeButtonContainerStyle}
+                      style={fonts.sizeButtonStyle}
+                      onPress={() => this.props.handleSmallerButton()}>
+                      SMALLER
                       </Button>
+
                   </View>
-                  <View style={[styles.rightMiddleContainer,  testBorder('pink')]}>
+                  <View style={[layout.rightMiddleContainer,  testBorder('pink')]}>
                   </View>
               </View>
               
 
-
-              <View style={[styles.bottomContainer,  testBorder('brown')]}>
-                  <View style={[styles.leftBottomContainer,  testBorder('red')]}>
+              <View style={[layout.bottomContainer,  testBorder('brown')]}>
+                  <View style={[layout.leftBottomContainer,  testBorder('red')]}>
                   </View>
-                  <View style={[styles.middleBottomContainer,  testBorder('yellow')]}>
-                      <View style={[styles.topMiddleBottomContainer,  testBorder('green')]}>
-                        <Text style={[{paddingTop:15, textAlign: "center", fontFamily: 'DINCondensed-Bold', color: 'white', fontSize: 23},  testBorder('blue')]}>than a $1 bill?</Text>
+                  <View style={[layout.middleBottomContainer,  testBorder('yellow')]}>
+                      <View style={[layout.topMiddleBottomContainer,  testBorder('green')]}>
+                        <Text style={[fonts.whiteTextBottom,  testBorder('blue')]}>than a $1 bill?</Text>
                         <Image
                           style={{flex:1, height: undefined, width: undefined}}
                           source={require('../img/dollar.jpg')}
                           resizeMode="contain"
                         />
                       </View>
-                      <View style={[styles.bottomMiddleBottomContainer,  testBorder('red')]}>
+                      <View style={[layout.bottomMiddleBottomContainer,  testBorder('red')]}>
                       </View>
                   </View>
-                  <View style={[styles.rightBottomContainer,  testBorder('green')]}>
+                  <View style={[layout.rightBottomContainer,  testBorder('green')]}>
                   </View>
               </View>
           
@@ -70,7 +70,7 @@ export default class SizeSelection extends Component {
     }
 }
 
-const styles = StyleSheet.create({
+const layout = StyleSheet.create({
   parentContainer: {
       flex: 1, 
       backgroundColor: '#E1592A'
@@ -121,9 +121,6 @@ const styles = StyleSheet.create({
   },
   topMiddleBottomContainer: {
       flex: 5,
-      // justifyContent: "center",
-      // alignItems: "center",
-      // justifyContent: "flex-start",
   },
   bottomMiddleBottomContainer: {
       flex: 1,
@@ -142,17 +139,3 @@ var testBorder = function(color){
 }
 
 module.exports = SizeSelection;
-
-// NEW
-// ========================================
-// ========================================
-// pantone 7579 C = #E1592A
-// pantone 425 C  = #54575A
-// pantone 1495 C = #FF9117
-// pantone 429 C  = #A3A9AE
-
-// fontFamily: 'DINCondensed-Bold'
-// fontFamily: 'Helvetica'
-// ========================================
-// ========================================
-
