@@ -7,6 +7,7 @@ var {height, width} = Dimensions.get('window');
 if (width > 410){
     console.log("large screen")
     var fonts = StyleSheet.create({
+        
         // HEADER
         logoText: {
             fontFamily: 'DINCondensed-Bold',
@@ -41,14 +42,14 @@ if (width > 410){
             textAlign: "center", 
             fontFamily: 'DINCondensed-Bold', 
             color: 'white', 
-            fontSize: 28
+            fontSize: 28,
         },
         whiteTextBottom: {
             paddingTop:15, 
             textAlign: "center", 
             fontFamily: 'DINCondensed-Bold', 
             color: 'white', 
-            fontSize: 28
+            fontSize: 28,
         },
         sizeButtonContainerStyle: {
             paddingTop:22,
@@ -71,8 +72,6 @@ if (width > 410){
             fontSize: 50,
             paddingTop: 45,
             marginTop: 45,
-            // paddingBottom: -5,
-            // marginBottom: -5,
         },
         tipsText: {
             fontSize: 21, 
@@ -96,9 +95,11 @@ if (width > 410){
             fontSize: 50,
         },
     });
+
 } else if (width > 370) {
     console.log("medium screen")
     var fonts = StyleSheet.create({
+
         // HEADER
         logoText: {
             fontFamily: 'DINCondensed-Bold',
@@ -131,14 +132,14 @@ if (width > 410){
             textAlign: "center", 
             fontFamily: 'DINCondensed-Bold', 
             color: 'white', 
-            fontSize: 23
+            fontSize: 23,
         },
         whiteTextBottom: {
             paddingTop:15, 
             textAlign: "center", 
             fontFamily: 'DINCondensed-Bold', 
             color: 'white', 
-            fontSize: 23
+            fontSize: 23,
         },
         sizeButtonContainerStyle: {
             paddingTop:22,
@@ -161,10 +162,7 @@ if (width > 410){
             fontSize: 40,
             paddingTop: 45,
             marginTop: 45,
-            // paddingBottom: -5,
-            // marginBottom: -5,
         },
-
         tipsText: {
             fontSize: 20, 
             fontFamily: 'Helvetica', 
@@ -173,7 +171,6 @@ if (width > 410){
             paddingLeft: 2, 
             textAlign: "center",
         },
-
         recommendButtonContainerStyle: {
             paddingTop:20,
             height:77,
@@ -188,9 +185,11 @@ if (width > 410){
         },
 
     });
+
 } else {
     console.log("small screen")
     var fonts = StyleSheet.create({
+
         // HEADER
         logoText: {
             fontFamily: 'DINCondensed-Bold',
@@ -223,14 +222,14 @@ if (width > 410){
             textAlign: "center", 
             fontFamily: 'DINCondensed-Bold', 
             color: 'white', 
-            fontSize: 22
+            fontSize: 22,
         },
         whiteTextBottom: {
             paddingTop:15, 
             textAlign: "center", 
             fontFamily: 'DINCondensed-Bold', 
             color: 'white', 
-            fontSize: 22
+            fontSize: 22,
         },
         sizeButtonContainerStyle: {
             paddingTop:21,
@@ -256,7 +255,6 @@ if (width > 410){
             paddingBottom: -5,
             marginBottom: -5,
         },
-
         tipsText: {
             fontSize: 17, 
             fontFamily: 'Helvetica', 
@@ -265,7 +263,6 @@ if (width > 410){
             paddingLeft: 2, 
             textAlign: "center",
         },
-
         recommendButtonContainerStyle: {
             paddingTop:16,
             height:65,
@@ -284,28 +281,6 @@ if (width > 410){
 
 module.exports = {fonts}
 
-// paddingTop: 0,
-// marginTop: 0,
-// paddingBottom: 0,
-// marginBottom: 0,
-// flexDirection: 'row',
-// flexDirection: 'column',
-// justifyContent: "center", vertical:   flex-start(top),  flex-end(bottom), space-around, space-between
-// alignItems: "center",     horizontal: flex-start(left), flex-end(right)
-
-
-// NEW
-// ========================================
-// ========================================
-// pantone 7579 C = #E1592A
-// pantone 425 C  = #54575A
-// pantone 1495 C = #FF9117
-// pantone 429 C  = #A3A9AE
-
-// fontFamily: 'DINCondensed-Bold'
-// fontFamily: 'Helvetica'
-// ========================================
-// ========================================
 
 
 

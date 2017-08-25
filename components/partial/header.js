@@ -26,7 +26,7 @@ const Header = () => {
 
 
         </View>
-        );
+    );
 };
 
 const layout = StyleSheet.create({

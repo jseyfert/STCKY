@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import {AppRegistry, StyleSheet, Text, View, } from 'react-native';
 import Picker from 'react-native-picker';
 import Button from 'react-native-button';
-import {AppRegistry, StyleSheet, Text, View, } from 'react-native';
 import {fonts} from '../styles/fonts.js';
 var GlueDetails = require('../data/glueDetails');
 
@@ -24,7 +24,7 @@ export default class Recommendation extends Component {
         })
 
         tips.map(function(arr){
-            tipsRows.push(<Text style={fonts.tipsText}  key={arr}>• {arr}</Text>)
+            tipsRows.push(<Text style={fonts.tipsText} key={arr}>• {arr}</Text>)
         })
 
         return (
@@ -42,7 +42,7 @@ export default class Recommendation extends Component {
                     </View>
 
                     <View style={[layout.middleMiddleContainer,  testBorder('blue')]}>
-                           {tipsRows}
+                        {tipsRows}
                     </View>
 
                     <View style={[layout.rightMiddleContainer,  testBorder('pink')]}>
@@ -60,16 +60,16 @@ export default class Recommendation extends Component {
                             </View>
                             <View style={[layout.buttonContainer,  testBorder('purple')]}>
                                 <Button
-                                  containerStyle={fonts.recommendButtonContainerStyle}
-                                  style={fonts.recommendButtonStyle}
-                                  onPress={() => this.props.handleBuyOnlineButton(url)}>
-                                  BUY ONLINE
+                                containerStyle={fonts.recommendButtonContainerStyle}
+                                style={fonts.recommendButtonStyle}
+                                onPress={() => this.props.handleBuyOnlineButton(url)}>
+                                BUY ONLINE
                                 </Button>
                                 <Button
-                                  containerStyle={fonts.recommendButtonContainerStyle}
-                                  style={fonts.recommendButtonStyle}
-                                  onPress={() => this.props.handleGlueAgainButton()}>
-                                  GLUE AGAIN
+                                containerStyle={fonts.recommendButtonContainerStyle}
+                                style={fonts.recommendButtonStyle}
+                                onPress={() => this.props.handleGlueAgainButton()}>
+                                GLUE AGAIN
                                 </Button>
                             </View>
                         </View>
@@ -88,30 +88,30 @@ export default class Recommendation extends Component {
     render() {
         if (this.props.reccomendedGlueRegular){
             return (
-                    <View style={layout.parentContainer}>
-                        {this.mapGlueDetails(this.props.reccomendedGlueRegular)}
-                    </View> 
-                    )
-                } else if (this.props.surfaceSize === "large"){
+                <View style={layout.parentContainer}>
+                    {this.mapGlueDetails(this.props.reccomendedGlueRegular)}
+                </View> 
+            )
+        } else if (this.props.surfaceSize === "large"){
             return (
-                    <View style={layout.parentContainer}>
-                        {this.mapGlueDetails(this.props.reccomendedGlueLarge)}
-                    </View>
-                    )
-                } else {
+                <View style={layout.parentContainer}>
+                    {this.mapGlueDetails(this.props.reccomendedGlueLarge)}
+                </View>
+            )
+        } else {
             return (
-                    <View style={layout.parentContainer}>
-                        {this.mapGlueDetails(this.props.reccomendedGlueSmall)}
-                    </View>
-                    )
-            }
+                <View style={layout.parentContainer}>
+                    {this.mapGlueDetails(this.props.reccomendedGlueSmall)}
+                </View>
+            )
+        }
     }
 }
 
 const layout = StyleSheet.create({
     parentContainer: {
         flex: 1, 
-        backgroundColor: '#FF9117'
+        backgroundColor: '#FF9117',
     },
     
     ///////////////////
@@ -128,7 +128,6 @@ const layout = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
     },
-
     leftMiddleContainer: {
         flex: 1,
     },
@@ -152,22 +151,18 @@ const layout = StyleSheet.create({
     leftBottomContainer: {
         flex: 1,
     },
-
     middleBottomContainer: {
         flex: 4,
     },
-
     topMiddleBottomContainer: {
         flex: 3,
     },
     bottomMiddleBottomContainer: {
         flex: 1,
     },
-
     rightBottomContainer: {
         flex: 1,
     },
-
     buttonContainer: {
         flex: 2,
         justifyContent: "space-around",
@@ -178,13 +173,12 @@ const layout = StyleSheet.create({
         alignItems: "center",
     },
 
-
 });
 
 var testBorder = function(color){
     return {
         borderColor: color,
-        borderWidth: 0
+        borderWidth: 0,
     }
 }
 

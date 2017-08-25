@@ -6,27 +6,25 @@ var SizeSelection = require('./components/sizeSelection.js');
 var Recommendation = require('./components/recommendation.js');
 var GlueData = require('./data/glueData');
 
-// TODO //
-// add notification if they dont select two materials
-// crean up code
+// start deploy process
 
 // react-native run-ios --simulator="iPhone 7 Plus"     h=736 w=414
 // iPhone 7 Plus:
-// LANDING:       BOOM  
-// SIZESELECTION: BOOM
-// RECOMMENDATION:BOOM
+// LANDING:        = BOOM
+// SIZESELECTION:  = BOOM   
+// RECOMMENDATION: = BOOM
 
 // react-native run-ios                                 h=667 w=375
 // iPhone 6:
-// LANDING:         BOOM
-// SIZESELECTION:   BOOM
-// RECOMMENDATION:  BOOM
+// LANDING:          = BOOM
+// SIZESELECTION:    = BOOM
+// RECOMMENDATION:   = BOOM
 
 // react-native run-ios --simulator="iPhone 5"          h=568 w=320
 // iPhone 5:
-// LANDING:         BOOM   
-// SIZESELECTION:   BOOM
-// RECOMMENDATION:
+// LANDING:          = BOOM
+// SIZESELECTION:    = BOOM
+// RECOMMENDATION:   = BOOM
 
 
 export default class STCKY extends Component {
@@ -34,6 +32,7 @@ export default class STCKY extends Component {
     constructor(props) {
         super(props);
         this.state = { 
+            
             // PROD
             showWhichComp: 'landing',
             material1: 'material 1', 
@@ -79,14 +78,14 @@ export default class STCKY extends Component {
                         // console.log(obj.material2)
                         if (obj.surfaceSize.regular){
                             self.setState({
-                              showWhichComp: "recommendation",  
-                              reccomendedGlueRegular: obj.surfaceSize.regular
+                                showWhichComp: "recommendation",  
+                                reccomendedGlueRegular: obj.surfaceSize.regular
                             });
                         } else {
                             self.setState({
-                              showWhichComp: "sizeSelection",  
-                              reccomendedGlueSmall: obj.surfaceSize.small,
-                              reccomendedGlueLarge: obj.surfaceSize.large
+                                showWhichComp: "sizeSelection",  
+                                reccomendedGlueSmall: obj.surfaceSize.small,
+                                reccomendedGlueLarge: obj.surfaceSize.large
                             });
                         }
                     }
@@ -126,48 +125,44 @@ export default class STCKY extends Component {
     }
 
     handlePicker1 = (data) => {
-        // console.log("handlePicker1", data)
         this.setState({
             material1: data[0]
         });
     }
 
     handlePicker2 = (data) => {
-        // console.log("handlePicker2", data)
         this.setState({
             material2: data[0]
         });
     }
 
     render() {
-
-        // this.glueSelector(GlueData, this.state.material1, this.state.material2, this.state.surfaceSize)
         if (this.state.showWhichComp === 'landing'){
             return (
                 <Landing  
+                glueData = {GlueData}
                 material1 = { this.state.material1 }
                 material2 = { this.state.material2 }
-                glueData = {GlueData}
-                handleGlueItButton = { this.handleGlueItButton }
                 handlePicker1 = { this.handlePicker1 }
                 handlePicker2 = { this.handlePicker2 }
                 glueSelector = { this.glueSelector }
+                handleGlueItButton = { this.handleGlueItButton }
                 />
             );
         } else if (this.state.showWhichComp === 'sizeSelection'){
             return (
                 <SizeSelection 
-                    handleBiggerButton = { this.handleBiggerButton }
-                    handleSmallerButton = { this.handleSmallerButton }
+                handleBiggerButton = { this.handleBiggerButton }
+                handleSmallerButton = { this.handleSmallerButton }
                 />
             );
         } else if (this.state.showWhichComp === 'recommendation'){
             return (
                 <Recommendation 
+                surfaceSize = { this.state.surfaceSize }
                 reccomendedGlueRegular = { this.state.reccomendedGlueRegular }
                 reccomendedGlueSmall = { this.state.reccomendedGlueSmall }
                 reccomendedGlueLarge = { this.state.reccomendedGlueLarge }
-                surfaceSize = { this.state.surfaceSize }
                 handleBuyOnlineButton = { this.handleBuyOnlineButton }
                 handleGlueAgainButton = { this.handleGlueAgainButton }
                 />
@@ -177,21 +172,3 @@ export default class STCKY extends Component {
 }
 
 AppRegistry.registerComponent('STCKY', () => STCKY);
-
-
-// ========================================
-// ========================================
-// pantone 7579 C = '#DF7357'
-// pantone 425 C  = '#333F48'
-// pantone 1495 C = '#FF9351'
-// pantone 429 C  = '#A2AAAD'
-
-// fontFamily: 'DINCondensed-Bold'
-// fontFamily: 'Helvetica'
-// ========================================
-// ========================================
-
-
-
-
-

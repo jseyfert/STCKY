@@ -1,0 +1,20 @@
+paddingTop: 0,
+marginTop: 0,
+paddingBottom: 0,
+marginBottom: 0,
+flexDirection: 'row',
+flexDirection: 'column',
+justifyContent: "center", vertical:   flex-start(top),  flex-end(bottom), space-around, space-between
+alignItems: "center",     horizontal: flex-start(left), flex-end(right)
+
+========================================
+========================================
+pantone 7579 C = #E1592A
+pantone 425 C  = #54575A
+pantone 1495 C = #FF9117
+pantone 429 C  = #A3A9AE
+
+fontFamily: 'DINCondensed-Bold'
+fontFamily: 'Helvetica'
+========================================
+========================================

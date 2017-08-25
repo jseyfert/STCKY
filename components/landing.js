@@ -1,7 +1,7 @@
+import React, { Component } from 'react';
 import Picker from 'react-native-picker';
 import Button from 'react-native-button';
 import Header from './partial/header.js';
-import React, { Component } from 'react';
 import {fonts} from '../styles/fonts.js';
 import {AppRegistry, StyleSheet, Text, View, } from 'react-native';
 
@@ -17,7 +17,7 @@ export default class Landing extends Component {
                 this.props.handlePicker1(data)
             },
             onPickerCancel: data => {
-              console.log('onPickerCancel',data);
+                console.log('onPickerCancel',data);
             },
         });
     }
@@ -32,7 +32,7 @@ export default class Landing extends Component {
                 this.props.handlePicker2(data)
             },
             onPickerCancel: data => {
-              console.log('onPickerCancel',data);
+                console.log('onPickerCancel',data);
             },
         });
 
@@ -59,10 +59,10 @@ export default class Landing extends Component {
                     <View style={[layout.middleMiddleContainer,  testBorder('blue')]}>
 
                         <Button
-                          containerStyle={fonts.materialSelectorContainer}
-                          style={fonts.materialSelectorStyle}
-                          onPress={() => this.picker1()}>
-                          {this.props.material1}
+                        containerStyle={fonts.materialSelectorContainer}
+                        style={fonts.materialSelectorStyle}
+                        onPress={() => this.picker1()}>
+                        {this.props.material1}
                         </Button>
                         
                         <View style={[layout.middleMiddlePlusSign,  testBorder('blue')]}>
@@ -70,10 +70,10 @@ export default class Landing extends Component {
                         </View>
 
                         <Button
-                          containerStyle={fonts.materialSelectorContainer}
-                          style={fonts.materialSelectorStyle}
-                          onPress={() => this.picker2()}>
-                          {this.props.material2}
+                        containerStyle={fonts.materialSelectorContainer}
+                        style={fonts.materialSelectorStyle}
+                        onPress={() => this.picker2()}>
+                        {this.props.material2}
                         </Button>
 
                     </View>
@@ -91,9 +91,9 @@ export default class Landing extends Component {
                             <Button
                             containerStyle={{padding:18, height:75, overflow:'hidden', borderRadius:2, backgroundColor: '#FF9117'}}
                             style={{fontFamily: 'DINCondensed-Bold', fontSize: 50, color: 'white'}}
-                              onPress={() => this.props.handleGlueItButton()}
-                              >
-                              GLUE IT!
+                            onPress={() => this.props.handleGlueItButton()}
+                            >
+                            GLUE IT!
                             </Button>
                         </View>
                         <View style={[layout.bottomMiddleBottomContainer,  testBorder('red')]}>
